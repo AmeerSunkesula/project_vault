@@ -7,10 +7,8 @@
 require_once '../../config/config.php';
 require_once '../../config/database.php';
 
-// Check if user is logged in
-if (!is_logged_in()) {
-    redirect('/');
-}
+// Require user to be logged in
+require_login();
 
 $user_id = $_SESSION['user_id'];
 $user_role = $_SESSION['user_role'];

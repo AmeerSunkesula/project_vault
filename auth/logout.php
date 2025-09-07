@@ -18,6 +18,10 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Redirect to home page
-redirect('/');
+// Redirect to provided internal target or home
+$redirect_to = isset($_GET['redirect_to']) ? $_GET['redirect_to'] : '/';
+if (!is_safe_internal_path($redirect_to)) {
+    $redirect_to = '/';
+}
+redirect($redirect_to);
 ?>

@@ -7,9 +7,15 @@
 require_once '../config/config.php';
 require_once '../config/database.php';
 
+// Determine intended redirect target
+$redirect_to = isset($_GET['redirect_to']) ? $_GET['redirect_to'] : '/';
+if (!is_safe_internal_path($redirect_to)) {
+    $redirect_to = '/';
+}
+
 // Redirect if already logged in
 if (is_logged_in()) {
-    redirect('/');
+    redirect($redirect_to ?: '/');
 }
 
 $error_message = '';
@@ -38,7 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['full_name'] = $user['full_name'];
                         $_SESSION['login_time'] = time();
                         
-                        redirect('/');
+                        // Prefer secure internal redirect target if provided
+                        $target = isset($_GET['redirect_to']) && is_safe_internal_path($_GET['redirect_to'])
+                            ? $_GET['redirect_to']
+                            : '/';
+                        redirect($target);
                     } else {
                         $error_message = 'Your account is not active. Please contact administrator.';
                     }
@@ -105,7 +115,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
             
             <div class="auth-footer">
-                <p>Don't have an account? <a href="register.php">Register here</a></p>
+                <?php $register_link = 'register.php' . ($redirect_to && $redirect_to !== '/' ? ('?redirect_to=' . rawurlencode($redirect_to)) : ''); ?>
+                <p>Don't have an account? <a href="<?php echo $register_link; ?>">Register here</a></p>
                 <p><a href="forgot-password.php">Forgot Password?</a></p>
             </div>
         </div>

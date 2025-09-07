@@ -7,10 +7,8 @@
 require_once '../../config/config.php';
 require_once '../../config/database.php';
 
-// Check if user is logged in and is admin
-if (!is_logged_in() || !is_admin()) {
-    redirect('/');
-}
+// Require admin
+require_admin();
 
 $user_id = $_SESSION['user_id'];
 $message = '';
