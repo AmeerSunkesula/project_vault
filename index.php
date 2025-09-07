@@ -95,11 +95,11 @@ try {
                                 </div>
                             </div>
                         <?php else: ?>
-                            <a href="/auth/login.php" class="btn btn-primary">
+                            <a href="auth/login.php" class="btn btn-primary">
                                 <i class="fas fa-sign-in-alt"></i>
                                 Login
                             </a>
-                            <a href="/auth/register.php" class="btn btn-secondary">
+                            <a href="auth/register.php" class="btn btn-secondary">
                                 <i class="fas fa-user-plus"></i>
                                 Register
                             </a>
@@ -142,7 +142,7 @@ try {
                         Explore Projects
                     </a>
                     <?php if (!is_logged_in()): ?>
-                    <a href="/auth/register.php" class="btn btn-outline btn-lg">
+                    <a href="auth/register.php" class="btn btn-outline btn-lg">
                         <i class="fas fa-user-plus"></i>
                         Join Now
                     </a>
@@ -293,7 +293,7 @@ try {
                         Add Your Project
                     </a>
                     <?php else: ?>
-                    <a href="/auth/register.php" class="btn btn-primary">
+                    <a href="auth/register.php" class="btn btn-primary">
                         <i class="fas fa-user-plus"></i>
                         Join to Add Projects
                     </a>
@@ -353,7 +353,7 @@ try {
                         <li><a href="#about">About</a></li>
                         <li><a href="projects/">Projects</a></li>
                         <li><a href="projects/">Projects</a></li>
-                        <li><a href="/auth/register.php">Register</a></li>
+                        <li><a href="auth/register.php">Register</a></li>
                     </ul>
                 </div>
                 

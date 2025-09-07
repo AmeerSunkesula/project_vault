@@ -9,7 +9,7 @@ require_once '../config/database.php';
 
 // Redirect if already logged in
 if (is_logged_in()) {
-    redirect('/');
+    redirect('dashboard/');
 }
 
 $error_message = '';
@@ -68,8 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $insert_stmt->bindParam(':status', $status);
                 
                 if ($insert_stmt->execute()) {
-                    // Redirect to home page after successful registration
-                    redirect('/');
+                    if ($role === 'staff') {
+                        $success_message = 'Registration successful! Your account is pending approval from administrator.';
+                    } else {
+                        $success_message = 'Registration successful! You can now login.';
+                    }
                 } else {
                     $error_message = 'Registration failed. Please try again.';
                 }

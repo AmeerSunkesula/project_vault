@@ -9,7 +9,7 @@ require_once '../config/database.php';
 
 // Redirect if already logged in
 if (is_logged_in()) {
-    redirect('/');
+    redirect('dashboard/');
 }
 
 $error_message = '';
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['full_name'] = $user['full_name'];
                         $_SESSION['login_time'] = time();
                         
-                        redirect('/');
+                        redirect('dashboard/');
                     } else {
                         $error_message = 'Your account is not active. Please contact administrator.';
                     }

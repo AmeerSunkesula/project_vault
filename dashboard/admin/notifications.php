@@ -9,7 +9,7 @@ require_once '../../config/database.php';
 
 // Check if user is logged in and is admin
 if (!is_logged_in() || !is_admin()) {
-    redirect('/');
+    redirect('auth/login.php');
 }
 
 $message = '';

@@ -15,14 +15,13 @@ date_default_timezone_set(getenv('APP_TIMEZONE') ?: 'Asia/Kolkata');
 // Application constants
 define('APP_NAME', getenv('APP_NAME') ?: 'Project Vault');
 define('PROJECTS_PER_PAGE', (int)(getenv('PROJECTS_PER_PAGE') ?: 12));
-define('PASSWORD_MIN_LENGTH', (int)(getenv('PASSWORD_MIN_LENGTH') ?: 8));
 
 // Base URL utility (best-effort; can be overridden by APP_BASE_URL)
 if (!defined('APP_BASE_URL')) {
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-    $basePath = rtrim(getenv('APP_BASE_PATH') ?: '', '/');
-    $computedBase = $scheme . '://' . $host . $basePath;
+    $scriptDir = rtrim(str_replace('index.php', '', $_SERVER['SCRIPT_NAME'] ?? '/'), '/');
+    $computedBase = $scheme . '://' . $host . $scriptDir;
     define('APP_BASE_URL', getenv('APP_BASE_URL') ?: $computedBase);
 }
 
