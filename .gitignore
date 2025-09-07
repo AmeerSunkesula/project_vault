@@ -1,0 +1,26 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore node modules or vendor (if you use npm or composer later)
+node_modules/
+vendor/
+
+# Ignore environment and sensitive configs
+.env
+config/config.php
+config/database.php
+
+# Ignore logs and cache
+*.log
+cache/
+tmp/
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore OS-specific junk
+*.bak
+*.tmp

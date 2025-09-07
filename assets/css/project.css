@@ -1,0 +1,595 @@
+/**
+ * Project Detail Page Styles
+ * Project Vault - Dr. YC James Yen Government Polytechnic, Kuppam
+ */
+
+/* Project Main */
+.project-main {
+    padding: 2rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* Enforce two-column layout for main content + sidebar */
+.project-main .row {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.project-main .row > .col-8 {
+    flex: 0 0 66.666%;
+    max-width: 66.666%;
+}
+
+.project-main .row > .col-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+}
+
+/* Project Header */
+.project-header {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.project-title-section {
+    flex: 1;
+}
+
+.project-title-section h1 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.project-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-meta i {
+    color: #007bff;
+    width: 16px;
+}
+
+.creator-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.creator-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+/* Button normalization for project page */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.btn i {
+    line-height: 1;
+    display: inline-block;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.btn-lg {
+    padding: 1rem 1.75rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 80px;
+}
+
+.action-btn:hover {
+    border-color: #007bff;
+    background: #f8f9ff;
+    transform: translateY(-2px);
+}
+
+.action-btn.active {
+    border-color: #007bff;
+    background: #e3f2fd;
+    color: #007bff;
+}
+
+.collaborate-btn {
+    background: #28a745;
+    color: white;
+    border: 1px solid #28a745;
+}
+
+.collaborate-btn:hover {
+    background: #218838;
+    border-color: #1e7e34;
+}
+
+.collaborate-btn.active {
+    background: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.action-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.action-btn i {
+    font-size: 1.25rem;
+}
+
+.action-btn .count {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.upvote-btn.active {
+    border-color: #28a745;
+    background: #d4edda;
+    color: #28a745;
+}
+
+.downvote-btn.active {
+    border-color: #dc3545;
+    background: #f8d7da;
+    color: #dc3545;
+}
+
+.star-btn.active {
+    border-color: #ffc107;
+    background: #fff3cd;
+    color: #ffc107;
+}
+
+/* Project Content */
+.project-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.project-section {
+    padding: 2rem;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.project-section:last-child {
+    border-bottom: none;
+}
+
+.project-section h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.project-short-desc {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.project-long-desc {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.github-link:hover {
+    background: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.github-link i {
+    font-size: 1.25rem;
+}
+
+/* Comments */
+.comment-form {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.login-prompt {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.login-prompt a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #007bff;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #333;
+}
+
+.comment-date {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.comment-content {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.comment-actions a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.comment-actions a:hover {
+    text-decoration: underline;
+}
+
+.reply {
+    margin-left: 2rem;
+    border-left-color: #28a745;
+}
+
+/* Project Sidebar */
+.project-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+.sidebar-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.stat-item i {
+    color: #007bff;
+    width: 16px;
+}
+
+.collaborators-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.collaborator-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.collaborator-item i {
+    color: #007bff;
+    width: 16px;
+}
+
+.project-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.branch-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.type-tag {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-main .row {
+        flex-wrap: wrap;
+    }
+    .project-main .row > .col-8,
+    .project-main .row > .col-4 {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+    }
+    .project-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+    
+    .project-title-section h1 {
+        font-size: 2rem;
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .project-actions {
+        justify-content: center;
+    }
+    
+    .action-btn {
+        min-width: 70px;
+        padding: 0.75rem;
+    }
+    
+    .project-section {
+        padding: 1.5rem;
+    }
+    
+    .sidebar-card {
+        padding: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .comment {
+        padding: 1rem;
+    }
+    
+    .reply {
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-main {
+        padding: 1rem 0;
+    }
+    
+    .project-header {
+        padding: 1.5rem;
+    }
+    
+    .project-title-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .project-actions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .action-btn {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+    
+    .action-btn i {
+        font-size: 1rem;
+    }
+    
+    .action-btn .count {
+        font-size: 0.75rem;
+    }
+    
+    .project-section {
+        padding: 1rem;
+    }
+    
+    .comment-form {
+        padding: 1rem;
+    }
+    
+    .comment {
+        padding: 0.75rem;
+    }
+    
+    .sidebar-card {
+        padding: 0.75rem;
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.action-btn.loading {
+    position: relative;
+}
+
+.action-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation for interactions */
+.action-btn.updated {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

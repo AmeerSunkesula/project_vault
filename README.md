@@ -51,9 +51,7 @@ A comprehensive project management platform for Dr. YC James Yen Government Poly
    - Start XAMPP and ensure Apache and MySQL are running
    - Open phpMyAdmin (http://localhost/phpmyadmin)
    - Import the database schema:
-     ```sql
-   -- Run the contents of database/schema.sql
-   ```
+     
 
 3. **Configuration**
    - Update database credentials in `config/database.php` if needed:
