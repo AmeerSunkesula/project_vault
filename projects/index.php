@@ -140,11 +140,11 @@ $has_next = $page < $total_pages;
                                 </div>
                             </div>
                         <?php else: ?>
-                            <a href="../auth/login.php" class="btn btn-primary">
+                            <a href="/auth/login.php" class="btn btn-primary">
                                 <i class="fas fa-sign-in-alt"></i>
                                 Login
                             </a>
-                            <a href="../auth/register.php" class="btn btn-secondary">
+                            <a href="/auth/register.php" class="btn btn-secondary">
                                 <i class="fas fa-user-plus"></i>
                                 Register
                             </a>
@@ -360,7 +360,7 @@ $has_next = $page < $total_pages;
                             Add Your Project
                         </a>
                     <?php else: ?>
-                        <a href="../auth/register.php" class="btn btn-primary">
+                        <a href="/auth/register.php" class="btn btn-primary">
                             <i class="fas fa-user-plus"></i>
                             Join to Add Projects
                         </a>

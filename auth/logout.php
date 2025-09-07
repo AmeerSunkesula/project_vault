@@ -18,6 +18,6 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Redirect to login page
-redirect('auth/login.php');
+// Redirect to home page
+redirect('/');
 ?>
