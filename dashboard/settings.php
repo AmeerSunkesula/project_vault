@@ -9,7 +9,7 @@ require_once '../config/database.php';
 
 // Check if user is logged in
 if (!is_logged_in()) {
-    redirect('auth/login.php');
+    redirect('/');
 }
 
 $user_id = $_SESSION['user_id'];
@@ -189,7 +189,7 @@ function deleteAccount($db, $user_id) {
         if ($delete_stmt->execute()) {
             // Destroy session and redirect
             session_destroy();
-            redirect('auth/login.php?deleted=1');
+            redirect('/');
         } else {
             $error_message = 'Failed to delete account.';
         }

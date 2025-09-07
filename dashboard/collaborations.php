@@ -9,7 +9,7 @@ require_once '../config/database.php';
 
 // Check if user is logged in
 if (!is_logged_in()) {
-    redirect('auth/login.php');
+    redirect('/');
 }
 
 $user_id = $_SESSION['user_id'];
