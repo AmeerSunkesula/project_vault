@@ -6,10 +6,8 @@ Thumbs.db
 node_modules/
 vendor/
 
-# Ignore environment and sensitive configs
+# Ignore environment and 
 .env
-config/config.php
-config/database.php
 
 # Ignore logs and cache
 *.log
