@@ -266,4 +266,3 @@ This project is developed for Dr. YC James Yen Government Polytechnic, Kuppam. A
 ---
 
 **Note**: This system is designed for local deployment and educational use. For production deployment, additional security measures and server configuration may be required.
-# project_vault
