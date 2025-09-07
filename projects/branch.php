@@ -122,7 +122,7 @@ $has_next = $page < $total_pages;
                                 <i class="fas fa-tachometer-alt"></i>
                                 Dashboard
                             </a>
-                            <a href="../auth/logout.php" class="btn btn-secondary">
+                            <a href="/auth/logout.php" class="btn btn-secondary">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>

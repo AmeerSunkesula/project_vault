@@ -135,7 +135,7 @@ $has_next = $page < $total_pages;
                                         <a href="../dashboard/"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                                         <a href="../dashboard/profile.php"><i class="fas fa-user"></i> My Profile</a>
                                         <a href="../dashboard/settings.php"><i class="fas fa-cog"></i> Settings</a>
-                                        <a href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                        <a href="/auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
                                     </div>
                                 </div>
                             </div>
