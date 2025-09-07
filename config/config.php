@@ -76,6 +76,22 @@ function is_logged_in() {
 }
 
 /**
+ * Role helpers
+ */
+function get_user_role() {
+    return $_SESSION['user_role'] ?? null;
+}
+
+function is_admin() {
+    return get_user_role() === 'admin';
+}
+
+function is_staff() {
+    $role = get_user_role();
+    return $role === 'staff' || $role === 'admin';
+}
+
+/**
  * Redirect helper and exit
  */
 function redirect($path) {
@@ -92,6 +108,82 @@ function redirect($path) {
     }
     header('Location: ' . $url);
     exit;
+}
+
+/**
+ * Build a full URL for a relative application path
+ */
+function url($path) {
+    if (preg_match('/^https?:\/\//i', $path)) {
+        return $path;
+    }
+    $base = rtrim(APP_BASE_URL, '/');
+    if (strpos($path, '/') !== 0) {
+        $path = '/' . ltrim($path, '/');
+    }
+    return $base . $path;
+}
+
+/**
+ * Determine if a path is a safe internal path (prevents open redirects)
+ */
+function is_safe_internal_path($path) {
+    if ($path === null || $path === '') {
+        return false;
+    }
+    if (preg_match('/^https?:\/\//i', $path)) {
+        return false;
+    }
+    if (strpos($path, '//') === 0) { // protocol-relative URLs
+        return false;
+    }
+    return $path[0] === '/';
+}
+
+/**
+ * Get the current request path including query string
+ */
+function current_request_path() {
+    $uri = $_SERVER['REQUEST_URI'] ?? '/';
+    return $uri ?: '/';
+}
+
+/**
+ * Build login URL with optional redirect_to
+ */
+function login_url($redirectTo = null) {
+    $login = '/auth/login.php';
+    if (!empty($redirectTo) && is_safe_internal_path($redirectTo)) {
+        return $login . '?redirect_to=' . rawurlencode($redirectTo);
+    }
+    return $login;
+}
+
+/**
+ * Require the user to be logged in; otherwise redirect to login with redirect_to
+ */
+function require_login($redirectTo = null) {
+    if (is_logged_in()) {
+        return;
+    }
+    $target = $redirectTo ?: current_request_path();
+    if (!is_safe_internal_path($target)) {
+        $target = '/dashboard/';
+    }
+    redirect(login_url($target));
+}
+
+/**
+ * Require the user to be an admin; redirects to login or dashboard as appropriate
+ */
+function require_admin() {
+    if (!is_logged_in()) {
+        require_login();
+        return;
+    }
+    if (!is_admin()) {
+        redirect('/dashboard/');
+    }
 }
 
 ?>

@@ -54,13 +54,18 @@ A comprehensive project management platform for Dr. YC James Yen Government Poly
      
 
 3. **Configuration**
-   - Update database credentials in `config/database.php` if needed:
-     ```php
-     private $host = 'localhost';
-     private $db_name = 'project_vault';
-     private $username = 'root';
-     private $password = '';
-     ```
+   - Environment variables (optional):
+     - `APP_NAME`, `APP_TIMEZONE`, `APP_BASE_URL`, `APP_BASE_PATH`, `PROJECTS_PER_PAGE`, `PASSWORD_MIN_LENGTH`
+     - Database: `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_CHARSET`
+   - Base URL:
+     - By default the app computes `APP_BASE_URL` from the request. For CLI or proxies, set `APP_BASE_URL` explicitly.
+   - Auth helpers available in `config/config.php`:
+     - `is_logged_in()`, `is_staff()`, `is_admin()`
+     - `require_login()`, `require_admin()`
+     - `redirect($path)`, `url($path)`
+     - `login_url($redirectTo)` for building login links with post-login redirect
+   - Redirects:
+     - Login and logout support `?redirect_to=/desired/path` (internal paths only) to return users to their intended page.
 
 4. **College Logo**
    - Place your college logo as `assets/images/polytechnic_logo.jpg`
@@ -191,7 +196,7 @@ project_vault/
 - **Password Hashing**: All passwords are securely hashed using PHP's password_hash()
 - **SQL Injection Protection**: All database queries use prepared statements
 - **XSS Prevention**: All user input is sanitized and escaped
-- **CSRF Protection**: Forms include CSRF tokens
+- **CSRF Protection**: (Planned) Add tokens to mutating forms
 - **Session Management**: Secure session handling with timeout
 - **Input Validation**: Comprehensive server-side validation
 
